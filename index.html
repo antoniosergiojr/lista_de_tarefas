@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"
+      integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div id="listaTarefasApp" class="container">
+      <h3>{{titulo}} <i class="fa fa-tasks" aria-hidden="true"></i></h3>
+      <input
+        type="text"
+        v-model="tarefa"
+        placeholder="Ex.: comprar pão"
+        maxlength="47"
+      />
+      <button v-on:click="adicionarTarefa()" :disabled="!tarefa">
+        <i class="fa fa-plus" aria-hidden="true"></i> Adicionar
+      </button>
+      <button
+        v-on:click="removerTodasTarefas()"
+        v-if="tarefas.length &gt; 1"
+        class="remover-todos"
+      >
+        Remover Todos
+      </button>
+      <div
+        class="tarefas"
+        v-for="(tarefa, id) in tarefasOrdenadasPorFinalizadas"
+      >
+        <div
+          v-on:click="finalizarTarefa(tarefa)"
+          :style="{ 'text-decoration': tarefa.finalizada ? 'line-through' : '' }"
+          class="tarefa"
+        >
+          {{tarefa.descricao}}
+        </div>
+        <div class="remover" v-on:click="removerTarefa(tarefa)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/listaTarefasApp.js"></script>
+  </body>
+</html>

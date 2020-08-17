@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  text-align: center;
+  margin: 20px auto 10px;
+  width: 480px;
+  overflow: hidden;
+}
+.container input {
+  background-color: #f7f7f7;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  width: calc(100% - 210px);
+  height: 46px;
+  padding: 10px;
+  float: left;
+}
+.container input:focus {
+  outline: none;
+}
+.container button {
+  width: 90px;
+  height: 46px;
+  padding: 10px;
+  background-color: #2196f3;
+  color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  float: left;
+  margin-left: 5px;
+}
+.container button:disabled {
+  opacity: 0.4;
+  cursor: no-drop;
+}
+.container button:focus {
+  outline: none;
+}
+.container button.remover-todos {
+  width: 110px;
+  background-color: #f44336;
+}
+.container .tarefas .tarefa {
+  background-color: rgba(139, 195, 74, 0.25);
+  padding: 15px;
+  text-align: left;
+  margin-bottom: 15px;
+  margin-right: 5px;
+  width: calc(100% - 86px);
+  cursor: pointer;
+  float: left;
+}
+.container .tarefas .remover {
+  float: right;
+  width: 80px;
+  background-color: #f44336;
+  color: #fff;
+  border-color: transparent;
+  padding: 1px 10px;
+  cursor: pointer;
+  height: 48px;
+  line-height: 51px;
+}
